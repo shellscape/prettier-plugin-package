@@ -24,6 +24,7 @@
     "test": "ava",
     "lint-staged": "lint-staged"
   },
+  "module": "dist/file.esm.js",
   "files": [
     "README.md",
     "lib/",
