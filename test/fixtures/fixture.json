@@ -37,17 +37,23 @@
     "prettier"
   ],
   "peerDependencies": {
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "eslint-config-shellscape": "^2.0.2"
   },
-  "dependencies": {},
+  "dependencies": {
+    "nyc": "^14.1.0",
+    "eslint-config-shellscape": "^2.0.2",
+    "ava": "^2.2.0",
+    "execa": "^2.0.3"
+  },
   "devDependencies": {
-    "@commitlint/cli": "^8.1.0",
     "@commitlint/config-conventional": "^8.1.0",
+    "lint-staged": "^9.2.0",
     "ava": "^2.2.0",
     "eslint-config-shellscape": "^2.0.2",
     "execa": "^2.0.3",
-    "lint-staged": "^9.2.0",
     "nyc": "^14.1.0",
+    "@commitlint/cli": "^8.1.0",
     "pre-commit": "^1.2.2",
     "prettier": "^1.18.2"
   },
