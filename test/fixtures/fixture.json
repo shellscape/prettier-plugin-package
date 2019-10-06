@@ -41,12 +41,6 @@
     "prettier": "^1.18.2",
     "eslint-config-shellscape": "^2.0.2"
   },
-  "dependencies": {
-    "nyc": "^14.1.0",
-    "eslint-config-shellscape": "^2.0.2",
-    "ava": "^2.2.0",
-    "execa": "^2.0.3"
-  },
   "typings": "dist/index.d.ts",
   "dependencies": {},
   "devDependencies": {
@@ -60,15 +54,16 @@
     "pre-commit": "^1.2.2",
     "prettier": "^1.18.2"
   },
-  "ava": {
-    "files": [
-      "!**/fixtures/**"
-    ]
-  },
+  "pre-commit": "lint-staged",
   "lint-staged": {
     "*.js": [
       "eslint --fix",
       "git add"
+    ]
+  },
+  "ava": {
+    "files": [
+      "!**/fixtures/**"
     ]
   },
   "nyc": {
@@ -78,6 +73,5 @@
     "exclude": [
       "test/"
     ]
-  },
-  "pre-commit": "lint-staged"
+  }
 }
