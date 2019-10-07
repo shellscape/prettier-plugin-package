@@ -6,9 +6,11 @@ test('default', (t) => {
     filepath: 'package.json',
     parser: 'json-stringify',
     plugins: ['.'],
-    sort: {
-      alpha: ['dependencies']
-    }
+    pluginPackage: JSON.stringify({
+      sort: {
+        alpha: ['dependencies']
+      }
+    })
   };
   const fixture = {
     dependencies: {
