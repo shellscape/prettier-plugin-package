@@ -99,6 +99,7 @@ Top-level keys are sorted according to a style commonly seen in the packages of 
   'bundledDependencies',
   'optionalDependencies',
   'peerDependencies',
+  'peerDependenciesMeta',
   'dependencies',
   'devDependencies',
   'resolutions'
