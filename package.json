@@ -40,8 +40,8 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@commitlint/cli": "^8.1.0",
-    "@commitlint/config-conventional": "^8.1.0",
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
     "ava": "^3.5.1",
     "eslint-config-shellscape": "^2.0.2",
     "execa": "^4.0.0",
