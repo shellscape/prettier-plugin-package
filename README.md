@@ -56,7 +56,7 @@ Keys in `engines` are ordered alphabetically.
 
 ### Files
 
-Keys in `files` are ordered alphabetically, followed by `README.md` and `LICENSE` if they exist in the array.
+Keys in `files` are ordered alphabetically, followed by negations (paths that start with `!`), `README.md` and `LICENSE` if they exist in the array.
 
 ### Scripts
 
