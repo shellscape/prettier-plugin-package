@@ -84,6 +84,9 @@ Top-level keys are sorted according to a style commonly seen in the packages of 
   // entry
   'main',
   'bin',
+  'module',
+  'type',
+  'exports',
 
   // constraints
   'engines',
@@ -102,7 +105,11 @@ Top-level keys are sorted according to a style commonly seen in the packages of 
   'peerDependenciesMeta',
   'dependencies',
   'devDependencies',
-  'resolutions'
+  'resolutions',
+
+  // types
+  'types',
+  'typings'
 ]
 ```
 
