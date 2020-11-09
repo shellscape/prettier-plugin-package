@@ -16,3 +16,33 @@ test('default', (t) => {
 
   t.snapshot(output);
 });
+
+test('negations', (t) => {
+  const options = {
+    filepath: 'package.json',
+    parser: 'json-stringify',
+    plugins: ['.']
+  };
+  const fixture = {
+    files: [
+      '/lit-html.js',
+      '/lit-html.js.map',
+      '/lit-html.d.ts',
+      '/lit-html.d.ts.map',
+      '/directives/',
+      '/parts.js',
+      '/parts.js.map',
+      '/parts.d.ts',
+      '/parts.d.ts.map',
+      '/src/',
+      '!/src/test/',
+      '/development/',
+      '!/development/test/'
+    ]
+  };
+
+  const input = JSON.stringify(fixture, null, 2);
+  const output = prettier.format(input, options);
+
+  t.snapshot(output);
+});
