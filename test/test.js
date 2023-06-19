@@ -1,3 +1,5 @@
+/* eslint-disable import/no-unresolved, sort-keys */
+
 const { readFileSync } = require('fs');
 const { join } = require('path');
 

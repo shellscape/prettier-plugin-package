@@ -25,18 +25,8 @@
     "lint-staged": "lint-staged"
   },
   "module": "dist/file.esm.js",
-  "files": [
-    "README.md",
-    "lib/",
-    "LICENSE",
-    "index.js"
-  ],
-  "keywords": [
-    "package",
-    "package.json",
-    "plugin",
-    "prettier"
-  ],
+  "files": ["README.md", "lib/", "LICENSE", "index.js"],
+  "keywords": ["package", "package.json", "plugin", "prettier"],
   "peerDependencies": {
     "prettier": "^1.18.2",
     "eslint-config-shellscape": "^2.0.2"
@@ -48,7 +38,7 @@
     "execa": "^2.0.3"
   },
   "typings": "dist/index.d.ts",
-  "dependencies": {},
+  "bundledDependencies": ["zero", "one", "two"],
   "devDependencies": {
     "@commitlint/config-conventional": "^8.1.0",
     "lint-staged": "^9.2.0",
@@ -61,23 +51,14 @@
     "prettier": "^1.18.2"
   },
   "ava": {
-    "files": [
-      "!**/fixtures/**"
-    ]
+    "files": ["!**/fixtures/**"]
   },
   "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "git add"
-    ]
+    "*.js": ["eslint --fix", "git add"]
   },
   "nyc": {
-    "include": [
-      "lib/*.js"
-    ],
-    "exclude": [
-      "test/"
-    ]
+    "include": ["lib/*.js"],
+    "exclude": ["test/"]
   },
   "pre-commit": "lint-staged"
 }

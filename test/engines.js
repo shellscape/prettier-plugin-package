@@ -1,3 +1,5 @@
+/* eslint-disable import/no-unresolved, sort-keys */
+
 const test = require('ava');
 const prettier = require('prettier');
 
