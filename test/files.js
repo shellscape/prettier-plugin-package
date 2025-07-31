@@ -9,10 +9,10 @@ test('default', async () => {
   const options = {
     filepath: 'package.json',
     parser: 'json-stringify',
-    plugins: [plugin]
+    plugins: [plugin],
   };
   const fixture = {
-    files: ['README.md', 'LICENSE', 'lib/']
+    files: ['README.md', 'LICENSE', 'lib/'],
   };
 
   const input = JSON.stringify(fixture, null, 2);
@@ -25,7 +25,7 @@ test('negations', async () => {
   const options = {
     filepath: 'package.json',
     parser: 'json-stringify',
-    plugins: [plugin]
+    plugins: [plugin],
   };
   const fixture = {
     files: [
@@ -41,8 +41,8 @@ test('negations', async () => {
       '/src/',
       '!/src/test/',
       '/development/',
-      '!/development/test/'
-    ]
+      '!/development/test/',
+    ],
   };
 
   const input = JSON.stringify(fixture, null, 2);

@@ -1,0 +1,14 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`props 1`] = `
+"{
+  "version": "0.1.1",
+  "keywords": [
+    "package",
+    "package.json",
+    "plugin",
+    "prettier"
+  ]
+}
+"
+`;

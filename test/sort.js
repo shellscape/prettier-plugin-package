@@ -5,17 +5,15 @@ import prettier from 'prettier';
 
 import plugin from '../lib/index.js';
 
-test('default', async () => {
+test('props', async () => {
   const options = {
     filepath: 'package.json',
     parser: 'json-stringify',
     plugins: [plugin],
   };
   const fixture = {
-    engines: {
-      npm: 'joker',
-      node: 'batman',
-    },
+    keywords: ['package', 'package.json', 'plugin', 'prettier'],
+    version: '0.1.1',
   };
 
   const input = JSON.stringify(fixture, null, 2);

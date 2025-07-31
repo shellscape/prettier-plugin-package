@@ -1,3 +1,4 @@
 {
-  "plugins": ["./lib/index.js"]
+  "plugins": ["./lib/index.js"],
+  "singleQuote": true
 }

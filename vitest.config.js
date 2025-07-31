@@ -5,6 +5,9 @@ export default defineConfig({
     globals: true,
     include: ['test/**/*.js'],
     exclude: ['**/node_modules/**', '**/fixtures/**'],
+    resolveSnapshotPath: (testPath, snapExtension) => {
+      return testPath.replace('/test/', '/test/snapshots/') + snapExtension;
+    },
     coverage: {
       reporter: ['text', 'lcov'],
       include: ['lib/*.js'],

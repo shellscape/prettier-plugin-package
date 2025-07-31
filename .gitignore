@@ -10,3 +10,4 @@ dist
 test/fixtures/**/dist
 
 .eslintcache
+.claude
