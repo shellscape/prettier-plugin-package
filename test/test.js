@@ -1,12 +1,13 @@
 /* eslint-disable import/no-unresolved, sort-keys */
 
-const { readFileSync } = require('fs');
-const { join } = require('path');
+import { readFileSync } from 'fs';
+import { join }  from 'path';
 
-const test = require('ava');
-const prettier = require('prettier');
+import { test, expect } from 'vitest';
+import prettier from 'prettier';
 
-const pkg = require('./fixtures/fixture.json');
+import pkg  from './fixtures/fixture.json';
+import plugin from '../lib/index.js';
 //
 const shuffle = (arr) => {
   const result = arr.slice();
@@ -17,11 +18,11 @@ const shuffle = (arr) => {
   return result;
 };
 
-test('randomize', (t) => {
+test('randomize', async () => {
   const options = {
     filepath: join(__dirname, 'package.json'),
     parser: 'json-stringify',
-    plugins: ['.']
+    plugins: [plugin]
   };
   const keys = shuffle(Object.keys(pkg));
   const fixture = {};
@@ -31,16 +32,16 @@ test('randomize', (t) => {
   }
 
   const input = JSON.stringify(fixture, null, 2);
-  const output = prettier.format(input, options);
+  const output = await prettier.format(input, options);
 
-  t.snapshot(output);
+  expect(output).toMatchSnapshot();
 });
 
-test('preprocess', (t) => {
+test('preprocess', async () => {
   const options = {
     filepath: join('package.json'),
     parser: 'json-stringify',
-    plugins: ['.'],
+    plugins: [plugin],
     preprocess: (input) => {
       const { version, repository } = JSON.parse(input);
       const result = { repository, version };
@@ -55,33 +56,32 @@ test('preprocess', (t) => {
   }
 
   const input = JSON.stringify(fixture, null, 2);
-  const output = prettier.format(input, options);
+  const output = await prettier.format(input, options);
 
-  t.snapshot(output);
+  expect(output).toMatchSnapshot();
 });
 
-test('not package.json', (t) => {
+test('not package.json', async () => {
   const options = {
     filepath: 'batman.json',
     parser: 'json-stringify',
-    plugins: ['.']
+    plugins: [plugin]
   };
   const fixture = { version: 'batman', name: 'joker' };
   const input = JSON.stringify(fixture, null, 2);
-  const output = prettier.format(input, options);
+  const output = await prettier.format(input, options);
 
-  t.is(input.trim(), output.trim());
+  expect(output.trim()).toBe(input.trim());
 });
 
-test('broken json', (t) => {
+test('broken json', async () => {
   const options = {
     filepath: 'broken.json',
     parser: 'json-stringify',
-    plugins: ['.']
+    plugins: [plugin]
   };
 
   const broken = readFileSync(join(__dirname, './fixtures/broken.json'), 'utf-8');
-  const fail = () => prettier.format(broken, options);
-
-  t.throws(fail);
+  
+  await expect(prettier.format(broken, options)).rejects.toThrow();
 });

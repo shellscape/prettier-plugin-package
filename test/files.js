@@ -1,29 +1,31 @@
 /* eslint-disable import/no-unresolved, sort-keys */
 
-const test = require('ava');
-const prettier = require('prettier');
+import { test, expect } from 'vitest';
+import prettier from 'prettier';
 
-test('default', (t) => {
+import plugin from '../lib/index.js';
+
+test('default', async () => {
   const options = {
     filepath: 'package.json',
     parser: 'json-stringify',
-    plugins: ['.']
+    plugins: [plugin]
   };
   const fixture = {
     files: ['README.md', 'LICENSE', 'lib/']
   };
 
   const input = JSON.stringify(fixture, null, 2);
-  const output = prettier.format(input, options);
+  const output = await prettier.format(input, options);
 
-  t.snapshot(output);
+  expect(output).toMatchSnapshot();
 });
 
-test('negations', (t) => {
+test('negations', async () => {
   const options = {
     filepath: 'package.json',
     parser: 'json-stringify',
-    plugins: ['.']
+    plugins: [plugin]
   };
   const fixture = {
     files: [
@@ -44,7 +46,7 @@ test('negations', (t) => {
   };
 
   const input = JSON.stringify(fixture, null, 2);
-  const output = prettier.format(input, options);
+  const output = await prettier.format(input, options);
 
-  t.snapshot(output);
+  expect(output).toMatchSnapshot();
 });
