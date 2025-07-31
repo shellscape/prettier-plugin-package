@@ -29,7 +29,7 @@ test('broken json', async () => {
   };
 
   const broken = readFileSync(
-    join(__dirname, './fixtures/broken.json'),
+    join(import.meta.dirname, './fixtures/broken.json'),
     'utf-8',
   );
 

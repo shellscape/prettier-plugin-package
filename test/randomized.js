@@ -19,7 +19,7 @@ export const shuffle = (arr) => {
 
 test('randomize', async () => {
   const options = {
-    filepath: join(__dirname, 'package.json'),
+    filepath: join(import.meta.dirname, 'package.json'),
     parser: 'json-stringify',
     plugins: [plugin],
   };

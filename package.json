@@ -1,6 +1,6 @@
 {
   "name": "prettier-plugin-package",
-  "version": "1.4.0",
+  "version": "2.0.0",
   "description": "An opinionated package.json formatter plugin for Prettier",
   "license": "MPL-2.0",
   "repository": "shellscape/prettier-plugin-package",
@@ -17,7 +17,7 @@
     "ci:lint": "npm run lint && npm run security",
     "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
     "ci:test": "npm run test -- --reporter=verbose",
-    "lint": "eslint --fix --cache lib test && prettier --write package.json",
+    "lint": "oxlint --format stylish lib test && prettier --write package.json",
     "lint-staged": "lint-staged",
     "prepublishOnly": "npm run lint",
     "security": "npm audit",
@@ -49,8 +49,9 @@
     "vitest": "^3.2.4"
   },
   "lint-staged": {
-    "*.js": [
-      "eslint --fix"
+    "*.{ts,js}?(x)": [
+      "oxlint --format stylish --fix",
+      "prettier --write"
     ]
   },
   "pre-commit": "lint-staged"
